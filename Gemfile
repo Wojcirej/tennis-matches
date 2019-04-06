@@ -12,6 +12,9 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'pry', '~> 0.12.2'
 gem 'pry-rails', '~> 0.3.9'
 gem 'faker', '~> 1.9', '>= 1.9.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'angularjs-rails', '~> 1.6', '>= 1.6.8'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 
 group :development, :test do
   gem 'figaro', '~> 1.1', '>= 1.1.1'
