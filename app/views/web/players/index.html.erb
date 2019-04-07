@@ -31,4 +31,8 @@
   </tbody>
 </table>
 
+<div class="row">
+  <%= link_to 'Add player', new_web_player_path, class: "btn btn-success" %>
+</div>
+
 <%= render 'shared/paginator', collection: @players %>
