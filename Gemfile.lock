@@ -42,7 +42,6 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    angularjs-rails (1.6.8)
     arel (9.0.0)
     autoprefixer-rails (9.5.0)
       execjs
@@ -233,7 +232,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angularjs-rails (~> 1.6, >= 1.6.8)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3, >= 4.3.1)
   database_cleaner (~> 1.7)

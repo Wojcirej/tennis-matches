@@ -15,8 +15,5 @@
 //= require popper
 //= require jquery3
 //= require bootstrap
-//= require angular
-//= require angular-animate
-//= require angular-resource
 //= require turbolinks
 //= require_tree .
