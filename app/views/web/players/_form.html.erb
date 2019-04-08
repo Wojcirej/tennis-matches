@@ -1,0 +1,57 @@
+<%= form_with model: player, local: true do |f| %>
+
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder: "First name", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder: "Last name", class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <%= f.label :date_of_birth %>
+      <%= f.date_field :date_of_birth, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= f.label :born %>
+      <%= f.text_field :born, placeholder: "Born", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= f.label :country %>
+      <%= f.select :country, ["Russia", "Spain", "Poland"], { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :sex, "male", class: "form-check-input" %>
+      <%= f.label :male, class: "form-check-label" %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :sex, "female", class: "form-check-input" %>
+      <%= f.label :female, class: "form-check-label" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.submit class: "btn btn-primary", value: "Submit" %>
+</div>
+
+<% end %>

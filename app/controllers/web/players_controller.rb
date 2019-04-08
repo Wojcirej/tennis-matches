@@ -1,5 +1,5 @@
 class Web::PlayersController < Web::BaseController
-  before_action :set_player, only: :show
+  before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   def index
     @players = Paginator.call(Player.all, params[:page], params[:per_page])
@@ -15,11 +15,25 @@ class Web::PlayersController < Web::BaseController
   def create
     @player = Player.new(player_params)
     if @player.save
-      redirect_to web_player_path(@player), notice: "Player has been created successfully."
+      redirect_to player_path(@player), notice: "Player has been created successfully."
     else
       flash[:alert] = @player.errors.values.flatten.join("<br>").html_safe
       render :new
     end
+  end
+
+  def update
+    if @player.update(player_params)
+      redirect_to player_path(@player), notice: "Player has been updated successfully."
+    else
+      flash[:alert] = @player.errors.values.flatten.join("<br>").html_safe
+      render :edit
+    end
+  end
+
+  def destroy
+    @player.destroy
+    redirect_to players_path, notice: "Player has been deleted."
   end
 
   private
