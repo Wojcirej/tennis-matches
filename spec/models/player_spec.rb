@@ -21,6 +21,22 @@ RSpec.describe Player, type: :model do
     it { is_expected.to validate_inclusion_of(:sex).in_array(["female", "male"]) }
   end
 
+  describe "#full_name" do
+    let(:player) { create(:player) }
+
+    it "returns player's first name and last name" do
+      expect(player.full_name).to eq("#{player.first_name} #{player.last_name}")
+    end
+  end
+
+  describe "#full_date_of_birth" do
+    let(:player) { create(:player, date_of_birth: Date.new(1987, 4, 19)) }
+
+    it "returns date of birth with name of the month" do
+      expect(player.full_date_of_birth).to eq("19 April 1987")
+    end
+  end
+
   describe "#age" do
 
     context "when date of birth set to 19-04-1987" do

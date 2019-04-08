@@ -10,4 +10,12 @@ class Player < ApplicationRecord
   def age
     ((Time.current - date_of_birth.to_time) / 1.year.seconds).floor
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def full_date_of_birth
+    date_of_birth.strftime("%-d %B %Y")
+  end
 end
