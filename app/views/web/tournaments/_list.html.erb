@@ -1,0 +1,45 @@
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tour</th>
+      <th scope="col">Category</th>
+      <th scope="col">Name</th>
+      <th scope="col">Country</th>
+      <th scope="col">City</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% tournaments.each_with_index do |tournament, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= tournament.tour %></td>
+        <td><%= tournament.category %></td>
+        <td><%= tournament.name %></td>
+        <td><%= tournament.country %></td>
+        <td><%= tournament.city %></td>
+        <td>
+          <%= link_to 'More...', tournament, class: "btn btn-info btn-sm" %>
+          <%= link_to 'Edit', edit_tournament_path(tournament, tour: tournament.tour), class: "btn btn-success btn-sm" %>
+          <%= link_to 'Delete', tournament, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="row">
+  <% if tour %>
+  <%= link_to 'Add tournament', new_tournament_path(tour: tour), class: "btn btn-success" %>
+  <% else %>
+  <div class="btn-group">
+    <%= link_to 'Add WTA tournament', new_tournament_path(tour: "WTA"), class: "btn btn-success" %>
+    <%= link_to 'Add ATP tournament', new_tournament_path(tour: "ATP"), class: "btn btn-success" %>
+    <%= link_to 'Add ITF tournament', new_tournament_path(tour: "ITF"), class: "btn btn-success" %>
+  </div>
+  <% end %>
+</div>
+
+<%= render 'shared/paginator', collection: tournaments %>

@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id            :uuid             not null, primary key
+#  first_name    :string           not null
+#  last_name     :string           not null
+#  country       :string           not null
+#  date_of_birth :date
+#  born          :string
+#  sex           :string           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 FactoryBot.define do
   factory :player do
     first_name { "MyString" }

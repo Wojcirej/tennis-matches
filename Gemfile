@@ -14,6 +14,8 @@ gem 'pry-rails', '~> 0.3.9'
 gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'ruby-enum', '~> 0.7.2'
+gem 'annotate', '~> 2.7', '>= 2.7.4'
 
 group :development, :test do
   gem 'figaro', '~> 1.1', '>= 1.1.1'

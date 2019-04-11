@@ -1,0 +1,49 @@
+<%= form_with model: tournament, local: true do |form| %>
+
+<div class="row">
+
+    <% if tour %>
+    <%= form.hidden_field :tour, value: tour %>
+    <% else %>
+    <div class="col">
+      <div class="form-group">
+        <%= form.label :tour %>
+        <%= form.select :tour, Enums::Tours.values, { include_blank: false }, class: "form-control" %>
+      </div>
+    </div>
+    <% end %>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :category %>
+      <%= form.select :category, @categories.values, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: "Name", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :country %>
+      <%= form.select :country, Enums::Countries.list, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :city %>
+      <%= form.text_field :city, placeholder: "City", class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.submit class: "btn btn-primary", value: "Submit" %>
+</div>
+
+<% end %>

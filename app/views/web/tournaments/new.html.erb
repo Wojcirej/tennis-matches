@@ -1,0 +1,9 @@
+<h1 class="display-4">Tennis matches</h1>
+<p class="lead">
+  Add new <%= @tour %> tournament
+</p>
+<hr class="my-4">
+
+<%= render 'form', tournament: @tournament, tour: @tour %>
+<hr class="my-4">
+<%= link_to 'Back', tournaments_path %>

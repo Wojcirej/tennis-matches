@@ -1,0 +1,10 @@
+<h1 class="display-4">Tennis matches</h1>
+<p class="lead">
+  Edit <%= @tournament.name %>
+</p>
+<hr class="my-4">
+
+<%= render 'form', tournament: @tournament, tour: @tour %>
+<hr class="my-4">
+<%= link_to 'Show', @tournament %> |
+<%= link_to 'Back', tournaments_path %>

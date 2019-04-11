@@ -12,6 +12,20 @@
       <li class="nav-item">
         <a class="nav-link" href="<%= players_path %>">Players</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+          role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Tournaments
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%= atp_tournaments_path %>">ATP</a>
+          <a class="dropdown-item" href="<%= wta_tournaments_path %>">WTA</a>
+          <a class="dropdown-item" href="<%= itf_tournaments_path %>">ITF</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<%= tournaments_path %>">See all list</a>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

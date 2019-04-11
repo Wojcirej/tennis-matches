@@ -34,7 +34,7 @@
   <div class="col">
     <div class="form-group">
       <%= f.label :country %>
-      <%= f.select :country, ["Russia", "Spain", "Poland"], { include_blank: false }, class: "form-control" %>
+      <%= f.select :country, Enums::Countries.list, { include_blank: false }, class: "form-control" %>
     </div>
   </div>
 
