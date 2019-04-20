@@ -1,6 +1,6 @@
 module GeneralFeatureSpecsMethods
 
-  def server_address
+  def root_server_address
     "#{Capybara.app_host}"
   end
 end

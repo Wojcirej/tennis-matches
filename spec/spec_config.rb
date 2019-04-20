@@ -25,7 +25,7 @@ end
 
 Capybara.always_include_port = true
 Capybara.run_server = true
-Capybara.app_host = "http://127.0.0.1:3030/"
+Capybara.app_host = "http://127.0.0.1:3030"
 Capybara.default_host = Capybara.app_host
 Capybara.server = :puma, { Silent: true }
 Capybara.server_host = '127.0.0.1'
@@ -37,7 +37,7 @@ Capybara.save_path = "tmp/screenshots/"
 Capybara.register_driver :cuprite do |app|
   Capybara::Cuprite::Driver.new(app, {
     window_size: [1680, 1050],
-    url_whitelist: ["http://127.0.0.1:3030/"]
+    url_whitelist: ["http://127.0.0.1:3030"]
     })
 end
 

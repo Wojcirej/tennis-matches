@@ -13,17 +13,17 @@ feature "Edit existing player page", type: :feature, js: true do
   it_behaves_like "page with top main menu", :edit_player_page
   include_examples "players form actions", :edit_player_page, "edit"
 
-  scenario "Has leading text explaining contents of the page" do
+  scenario "has leading text explaining contents of the page" do
     expect(edit_player_page).to have_lead
     expect(edit_player_page.lead_text).to eq("Edit details about #{player.full_name}")
   end
 
-  scenario "After clicking 'Back' link redirects to the players list page" do
+  scenario "after clicking 'Back' link takes to the players list page" do
     edit_player_page.back_link.click
     expect(players_list_page).to be_displayed
   end
 
-  scenario "Has pre-filled form with details of edited player" do
+  scenario "has pre-filled form with details of edited player" do
     expect(edit_player_page.form.first_name_value).to eq(player.first_name)
     expect(edit_player_page.form.last_name_value).to eq(player.last_name)
     expect(edit_player_page.form.date_of_birth_value).to eq(player.date_of_birth)

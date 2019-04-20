@@ -7,11 +7,11 @@ feature "Index page", type: :feature, js: true do
     index_page.load
   end
 
-  scenario "Has main menu on the top of the page" do
+  scenario "has main menu on the top of the page" do
     expect(index_page).to have_top_main_menu
   end
 
-  scenario "Has leading text saying 'Welcome'" do
+  scenario "has leading text saying 'Welcome'" do
     expect(index_page).to have_lead
     expect(index_page.lead_text).to eq("Welcome!")
   end

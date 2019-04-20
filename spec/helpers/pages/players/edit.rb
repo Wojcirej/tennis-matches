@@ -1,7 +1,7 @@
 module Pages
   module Players
     class Edit < SitePrism::Page
-      set_url("players/{id}/edit")
+      set_url("/players/{id}/edit")
 
       element :lead, 'p.lead'
       element :back_link, '.jumbotron a:nth-of-type(1)'

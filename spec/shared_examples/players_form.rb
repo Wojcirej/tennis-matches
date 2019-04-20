@@ -2,7 +2,7 @@ RSpec.shared_examples "players form actions" do |tested_page, action|
 
   let(:result) { action == "edit" ? "updated" : "created" }
 
-  scenario "Allows #{action} female player and then see details page" do
+  scenario "allows #{action} female player and then see details page" do
     Timecop.freeze(DateTime.new(2019, 4, 19))
     fill_in('First name', with: 'Maria')
     fill_in('Last name', with: 'Sharapova')
@@ -20,7 +20,7 @@ RSpec.shared_examples "players form actions" do |tested_page, action|
     expect(player_details_page.country).to eq("Russia")
   end
 
-  scenario "Allows #{action} male player and then see details page" do
+  scenario "allows #{action} male player and then see details page" do
     Timecop.freeze(DateTime.new(2019, 4, 19))
     fill_in('First name', with: 'Rafael')
     fill_in('Last name', with: 'Nadal')
