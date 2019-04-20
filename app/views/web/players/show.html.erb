@@ -1,8 +1,4 @@
-<h1 class="display-4">Tennis matches</h1>
-<p class="lead">
-  <%= @player.full_name %>
-</p>
-<hr class="my-4">
+<%= render 'shared/description', lead: @player.full_name, description: nil %>
 
 <p>
   <strong>Born: </strong><%= @player.full_date_of_birth %> (age <%= @player.age %>)

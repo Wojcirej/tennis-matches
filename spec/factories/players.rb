@@ -15,11 +15,11 @@
 
 FactoryBot.define do
   factory :player do
-    first_name { "MyString" }
-    last_name { "MyString" }
-    country { "MyString" }
-    date_of_birth { "2019-04-06" }
-    born { "MyString" }
+    first_name { Faker::Movies::LordOfTheRings.unique.character }
+    last_name { Faker::Name.unique.name }
+    country { Enums::Countries.list.sample }
+    date_of_birth { Faker::Date.unique.birthday(18, 40) }
+    born { Faker::Movies::LordOfTheRings.unique.location }
     sex { ["female", "male"].sample }
   end
 end

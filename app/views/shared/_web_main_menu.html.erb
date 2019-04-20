@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="<%= root_path %>">Tennis matches</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-menu">
+  <a class="navbar-brand" href="<%= root_path %>" id="brand-link">Tennis matches</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="<%= root_path %>">Index</a>
+        <a class="nav-link" href="<%= root_path %>" id="index-link">Index</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= players_path %>">Players</a>
+        <a class="nav-link" href="<%= players_path %>" id="players-link">Players</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -19,11 +19,11 @@
           Tournaments
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%= atp_tournaments_path %>">ATP</a>
-          <a class="dropdown-item" href="<%= wta_tournaments_path %>">WTA</a>
-          <a class="dropdown-item" href="<%= itf_tournaments_path %>">ITF</a>
+          <a class="dropdown-item" href="<%= atp_tournaments_path %>" id="atp-tournaments-link">ATP</a>
+          <a class="dropdown-item" href="<%= wta_tournaments_path %>" id="wta-tournaments-link">WTA</a>
+          <a class="dropdown-item" href="<%= itf_tournaments_path %>" id="itf-tournaments-link">ITF</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%= tournaments_path %>">See all list</a>
+          <a class="dropdown-item" href="<%= tournaments_path %>" id="all-tournaments-link">See all list</a>
         </div>
       </li>
     </ul>

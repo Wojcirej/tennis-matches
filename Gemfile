@@ -25,6 +25,10 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'simplecov', '~> 0.16.1', require: false
   gem 'timecop', '~> 0.9.1'
+  gem 'capybara', '~> 3.16', '>= 3.16.2'
+  gem 'capybara-screenshot', '~> 1.0', '>= 1.0.22'
+  gem 'cuprite', '~> 0.6.0'
+  gem 'site_prism', '~> 3.1'
 end
 
 group :development do

@@ -1,8 +1,4 @@
-<h1 class="display-4">Tennis matches</h1>
-<p class="lead">
-  Edit tennis player profile
-</p>
-<hr class="my-4">
+<%= render 'shared/description', lead: "Edit details about #{@player.full_name}", description: nil %>
 
 <%= render 'form', player: @player %>
 <hr class="my-4">

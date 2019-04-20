@@ -9,9 +9,6 @@ class Web::PlayersController < Web::BaseController
     @player = Player.new
   end
 
-  def show
-  end
-
   def create
     @player = Player.new(player_params)
     if @player.save
@@ -33,7 +30,7 @@ class Web::PlayersController < Web::BaseController
 
   def destroy
     @player.destroy
-    redirect_to players_path, notice: "Player has been deleted."
+    redirect_to players_path, notice: "Player #{@player.full_name} has been deleted."
   end
 
   private

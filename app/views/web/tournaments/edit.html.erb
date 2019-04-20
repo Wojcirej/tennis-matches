@@ -1,8 +1,4 @@
-<h1 class="display-4">Tennis matches</h1>
-<p class="lead">
-  Edit <%= @tournament.name %>
-</p>
-<hr class="my-4">
+<%= render 'shared/description', lead: "Edit #{@tournament.name} tournament", description: nil %>
 
 <%= render 'form', tournament: @tournament, tour: @tour %>
 <hr class="my-4">
