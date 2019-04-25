@@ -1,0 +1,160 @@
+<%= form_with(model: match, local: true) do |form| %>
+
+<div class="row">
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.label :home_seed, 'Seed' %>
+      <%= form.select :home_seed, 1..32, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :home_player_id, 'Player' %>
+      <%= form.select :home_player_id, @form_utils.players, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.label :home_set_1_score, 'Set 1' %>
+      <%= form.number_field :home_set_1_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.label :home_set_2_score, 'Set 2' %>
+      <%= form.number_field :home_set_2_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.label :home_set_3_score, 'Set 3' %>
+      <%= form.number_field :home_set_3_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.label :home_set_4_score, 'Set 4' %>
+      <%= form.number_field :home_set_4_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.label :home_set_5_score, 'Set 5' %>
+      <%= form.number_field :home_set_5_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.select :away_seed, 1..32, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.select :away_player_id, @form_utils.players, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.number_field :away_set_1_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.number_field :away_set_2_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.number_field :away_set_3_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.number_field :away_set_4_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.number_field :away_set_5_score, min: 0, max: 7, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2 offset-5">
+    <span class="align-middle">Tie-break scores</span>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.text_field :tiebreak_set_1_score, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.text_field :tiebreak_set_2_score, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.text_field :tiebreak_set_3_score, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.text_field :tiebreak_set_4_score, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-1">
+    <div class="form-group">
+      <%= form.text_field :tiebreak_set_5_score, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :tournament_id, 'Tournament' %>
+      <%= form.select :tournament_id, @form_utils.tournaments, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :stage %>
+      <%= form.select :stage, @form_utils.stages, { include_blank: false }, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <%= form.label :date %>
+      <%= form.date_field :date, value: @form_utils.date, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.submit class: "btn btn-primary", value: "Submit" %>
+</div>
+<% end %>

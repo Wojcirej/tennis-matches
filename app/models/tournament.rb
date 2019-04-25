@@ -13,6 +13,7 @@
 #
 
 class Tournament < ApplicationRecord
+  has_many :matches
   validates :name, presence: { message: "Please specify name of the tournament." }
   validates :country, presence: { message: "Please specify host country of the tournament." }
   validates :city, presence: { message: "Please specify host city of the tournament." }

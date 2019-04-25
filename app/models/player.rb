@@ -14,6 +14,9 @@
 #
 
 class Player < ApplicationRecord
+  has_many :home_matches, class_name: "Match", foreign_key: "home_player_id"
+  has_many :away_matches, class_name: "Match", foreign_key: "away_player_id"
+
   validates :first_name, presence: { message: "Please specify player's first name." }
   validates :last_name, presence: { message: "Please specify player's last name." }
   validates :country, presence: { message: "Please specify player's nationality." }

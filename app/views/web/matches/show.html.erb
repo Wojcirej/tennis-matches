@@ -1,0 +1,8 @@
+<%= render 'shared/description', lead: "#{@match.summary_without_participants}", description: nil %>
+
+<p>
+  <%= @match.winner_player.full_name %> def. <%= @match.loser_player.full_name %> <%= @match.scoreline %>
+</p>
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>

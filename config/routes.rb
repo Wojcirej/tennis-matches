@@ -9,5 +9,6 @@ Rails.application.routes.draw do
         get :itf
       end
     end
+    resources :matches
   end
 end

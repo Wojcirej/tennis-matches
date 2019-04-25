@@ -32,7 +32,7 @@ feature "Edit existing player page", type: :feature, js: true do
     expect(edit_player_page.form.send("#{player.sex}_sex_option_checked?")).to be true
   end
 
-  scenario "Displays errors after trying to edit player by erasing first name and last name" do
+  scenario "displays errors after trying to edit player by erasing first name and last name" do
     fill_in('First name', with: '')
     fill_in('Last name', with: '')
     edit_player_page.form.submit_button.click

@@ -1,6 +1,7 @@
 require 'simplecov'
 SimpleCov.start do
   add_group("Controllers", "app/controllers/")
+  add_group("Domain", "app/domain/")
   add_group("Persistence", "app/models/")
   add_group("Services", "app/services/")
 end

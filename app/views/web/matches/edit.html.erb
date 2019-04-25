@@ -1,0 +1,6 @@
+<%= render 'shared/description', lead: "Edit #{@form_utils.lead_text}", description: nil %>
+
+<%= render 'form', match: @form_utils.match %>
+
+<%= link_to 'Show', @form_utils.match %> |
+<%= link_to 'Back', matches_path %>

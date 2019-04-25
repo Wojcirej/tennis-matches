@@ -10,11 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_160304) do
+ActiveRecord::Schema.define(version: 2019_04_20_201807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "matches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "home_player_id", null: false
+    t.uuid "away_player_id", null: false
+    t.uuid "tournament_id", null: false
+    t.string "stage", null: false
+    t.date "date", null: false
+    t.string "home_seed"
+    t.string "away_seed"
+    t.integer "home_set_1_score"
+    t.integer "home_set_2_score"
+    t.integer "home_set_3_score"
+    t.integer "home_set_4_score"
+    t.integer "home_set_5_score"
+    t.integer "away_set_1_score"
+    t.integer "away_set_2_score"
+    t.integer "away_set_3_score"
+    t.integer "away_set_4_score"
+    t.integer "away_set_5_score"
+    t.string "tiebreak_set_1_score"
+    t.string "tiebreak_set_2_score"
+    t.string "tiebreak_set_3_score"
+    t.string "tiebreak_set_4_score"
+    t.string "tiebreak_set_5_score"
+    t.boolean "retirement", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "players", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name", null: false
@@ -37,4 +65,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_160304) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "matches", "players", column: "away_player_id"
+  add_foreign_key "matches", "players", column: "home_player_id"
+  add_foreign_key "matches", "tournaments"
 end

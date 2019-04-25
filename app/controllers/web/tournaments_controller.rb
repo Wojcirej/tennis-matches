@@ -18,14 +18,8 @@ class Web::TournamentsController < ApplicationController
     @itf_tournaments = Paginator.call(Tournament.itf_tournaments, params[:page], params[:per_page])
   end
 
-  def show
-  end
-
   def new
     @tournament = Tournament.new
-  end
-
-  def edit
   end
 
   def create
