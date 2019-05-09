@@ -40,7 +40,7 @@ class Match < ApplicationRecord
   validates :tournament_id, presence: { message: "Please specify tournament at which match has been played." }
   validates :stage, presence: { message: "Please specify stage of tournament." }
   validates :date, presence: { message: "Please specify date of the match." }
-  validates_inclusion_of :stage, in: Enums::TournamentStages.values
+  validates_inclusion_of :stage, in: Tournaments::Enums::TournamentStages.values
   validates_numericality_of :home_set_1_score, :home_set_2_score, :home_set_3_score,
   :home_set_4_score, :home_set_5_score, :away_set_1_score, :away_set_2_score,
   :away_set_3_score, :away_set_4_score, :away_set_5_score,

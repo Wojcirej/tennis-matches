@@ -18,21 +18,21 @@ FactoryBot.define do
     country { "MyString" }
     city { "MyString" }
     tour { "ATP" }
-    category { Enums::AtpTournamentCategories.values.sample }
+    category { Tournaments::Enums::AtpTournamentCategories.values.sample }
 
     trait :atp do
       tour { "ATP" }
-      category { Enums::AtpTournamentCategories.values.sample }
+      category { Tournaments::Enums::AtpTournamentCategories.values.sample }
     end
 
     trait :wta do
       tour { "WTA" }
-      category { Enums::WtaTournamentCategories.values.sample }
+      category { Tournaments::Enums::WtaTournamentCategories.values.sample }
     end
 
     trait :itf do
       tour { "ITF" }
-      category { Enums::ItfTournamentCategories.values.sample }
+      category { Tournaments::Enums::ItfTournamentCategories.values.sample }
     end
   end
 end

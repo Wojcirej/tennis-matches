@@ -29,23 +29,23 @@ RSpec.describe Tournament, type: :model do
   it { is_expected.to validate_presence_of(:city).with_message("Please specify host city of the tournament.") }
   it { is_expected.to validate_presence_of(:category).with_message("Please select tournament's category.") }
   it { is_expected.to validate_presence_of(:tour).with_message("Please select tour.") }
-  it { is_expected.to validate_inclusion_of(:tour).in_array(Enums::Tours.values) }
+  it { is_expected.to validate_inclusion_of(:tour).in_array(Tournaments::Enums::Tours.values) }
 
   context "when tour 'ATP'" do
     let(:tournament) { create(:tournament, :atp) }
 
-    it { expect(tournament).to validate_inclusion_of(:category).in_array(Enums::AtpTournamentCategories.values).with_message("Please select correct tournament category.") }
+    it { expect(tournament).to validate_inclusion_of(:category).in_array(Tournaments::Enums::AtpTournamentCategories.values).with_message("Please select correct tournament category.") }
   end
 
   context "when tour 'WTA'" do
     let(:tournament) { create(:tournament, :wta) }
 
-    it { expect(tournament).to validate_inclusion_of(:category).in_array(Enums::WtaTournamentCategories.values).with_message("Please select correct tournament category.") }
+    it { expect(tournament).to validate_inclusion_of(:category).in_array(Tournaments::Enums::WtaTournamentCategories.values).with_message("Please select correct tournament category.") }
   end
 
   context "when tour 'ITF'" do
     let(:tournament) { create(:tournament, :itf) }
 
-    it { expect(tournament).to validate_inclusion_of(:category).in_array(Enums::ItfTournamentCategories.values).with_message("Please select correct tournament category.") }
+    it { expect(tournament).to validate_inclusion_of(:category).in_array(Tournaments::Enums::ItfTournamentCategories.values).with_message("Please select correct tournament category.") }
   end
 end

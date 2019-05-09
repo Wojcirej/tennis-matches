@@ -69,7 +69,7 @@ module Matches
       end
 
       def humanized_stage
-        Enums::TournamentStages.to_h.find { |key, value| value == stage }[0].to_s.humanize
+        Tournaments::Enums::TournamentStages.to_h.find { |key, value| value == stage }[0].to_s.humanize
       end
     end
   end

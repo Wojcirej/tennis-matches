@@ -1,6 +1,5 @@
 class Web::TournamentsController < ApplicationController
   before_action :set_tournament, only: [:show, :edit, :update, :destroy]
-  before_action :set_form_data, only: [:new, :edit]
 
   def index
     @tournaments = Paginator.call(Tournament.all, params[:page], params[:per_page])
@@ -19,10 +18,11 @@ class Web::TournamentsController < ApplicationController
   end
 
   def new
-    @tournament = Tournament.new
+    @form_utils = Tournaments::Facades::FormUtils.new(params[:tour])
   end
 
   def create
+    @form_utils = Tournaments::Facades::FormUtils.new(tournament_params[:tour])
     @tournament = Tournament.new(tournament_params)
     if @tournament.save
       redirect_to @tournament, notice: 'Tournament was successfully created.'
@@ -32,7 +32,12 @@ class Web::TournamentsController < ApplicationController
     end
   end
 
+  def edit
+    @form_utils = Tournaments::Facades::FormUtils.new(@tournament.tour, @tournament)
+  end
+
   def update
+    @form_utils = Tournaments::Facades::FormUtils.new(@tournament.tour, @tournament)
     if @tournament.update(tournament_params)
       redirect_to @tournament, notice: 'Tournament was successfully updated.'
     else
@@ -43,17 +48,12 @@ class Web::TournamentsController < ApplicationController
 
   def destroy
     @tournament.destroy
-    redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.'
+    redirect_to send("#{@tournament.tour.downcase}_tournaments_url"), notice: "Tournament #{@tournament.name} has been deleted."
   end
 
   private
   def set_tournament
     @tournament = Tournament.find(params[:id])
-  end
-
-  def set_form_data
-    @tour = params[:tour]
-    @categories = "Enums::#{@tour.humanize}TournamentCategories".constantize
   end
 
   def tournament_params

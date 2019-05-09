@@ -1,6 +1,6 @@
-<%= render 'shared/description', lead: "Edit #{@tournament.name} tournament", description: nil %>
+<%= render 'shared/description', lead: "Edit #{@form_utils.tournament.name} tournament", description: nil %>
 
-<%= render 'form', tournament: @tournament, tour: @tour %>
+<%= render 'form', tournament: @form_utils.tournament, tour: @form_utils.tour %>
 <hr class="my-4">
-<%= link_to 'Show', @tournament %> |
+<%= link_to 'Show', @form_utils.tournament %> |
 <%= link_to 'Back', tournaments_path %>

@@ -1,4 +1,4 @@
-class Enums::AtpTournamentCategories
+class Tournaments::Enums::AtpTournamentCategories
   include Ruby::Enum
 
   define :grand_slam, "Grand Slam"
@@ -6,5 +6,4 @@ class Enums::AtpTournamentCategories
   define :atp_500, "500"
   define :atp_250, "250"
   define :challenger, "Challenger Tour"
-  define :itf_futures, "Futures"
 end

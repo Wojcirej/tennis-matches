@@ -1,4 +1,4 @@
-class Enums::Tours
+class Tournaments::Enums::Tours
   include Ruby::Enum
 
   define :atp, "ATP"

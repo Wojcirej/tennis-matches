@@ -1,4 +1,4 @@
-class Enums::ItfTournamentCategories
+class Tournaments::Enums::ItfTournamentCategories
   include Ruby::Enum
 
   define :grand_slam, "Grand Slam"

@@ -68,9 +68,9 @@ RSpec.describe Matches::Facades::FormUtils do
     it "returns pairs of names of tournament stages and it's valid symbols" do
       returned_stage_names = subject.stages.map(&:first)
       returned_valid_symbols = subject.stages.map(&:last)
-      expected_stage_names = Enums::TournamentStages.keys.map { |key| key.to_s.humanize }
+      expected_stage_names = Tournaments::Enums::TournamentStages.keys.map { |key| key.to_s.humanize }
       expect(returned_stage_names).to match_array(expected_stage_names)
-      expect(returned_valid_symbols).to match_array(Enums::TournamentStages.values)
+      expect(returned_valid_symbols).to match_array(Tournaments::Enums::TournamentStages.values)
     end
   end
 

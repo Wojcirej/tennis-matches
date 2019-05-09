@@ -67,7 +67,7 @@ RSpec.describe Match, type: :model do
   it { is_expected.to validate_presence_of(:tournament_id).with_message("Please specify tournament at which match has been played.") }
   it { is_expected.to validate_presence_of(:stage).with_message("Please specify stage of tournament.") }
   it { is_expected.to validate_presence_of(:date).with_message("Please specify date of the match.") }
-  it { is_expected.to validate_inclusion_of(:stage).in_array(Enums::TournamentStages.values) }
+  it { is_expected.to validate_inclusion_of(:stage).in_array(Tournaments::Enums::TournamentStages.values) }
   it { is_expected.to validate_numericality_of(:home_set_1_score).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(7) }
   it { is_expected.to validate_numericality_of(:home_set_2_score).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(7) }
   it { is_expected.to validate_numericality_of(:home_set_3_score).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(7) }

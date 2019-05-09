@@ -1,4 +1,4 @@
-class Enums::TournamentStages
+class Tournaments::Enums::TournamentStages
   include Ruby::Enum
 
   define :qualifications_first_round, "QR1"

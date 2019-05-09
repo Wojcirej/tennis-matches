@@ -1,4 +1,4 @@
-class Enums::WtaTournamentCategories
+class Tournaments::Enums::WtaTournamentCategories
   include Ruby::Enum
 
   define :grand_slam, "Grand Slam"
@@ -7,5 +7,4 @@ class Enums::WtaTournamentCategories
   define :premier, "Premier"
   define :international, "International"
   define :challenger, "Challenger Tour"
-  define :itf_futures, "Futures"
 end

@@ -1,22 +1,12 @@
 <%= form_with model: tournament, local: true do |form| %>
 
 <div class="row">
-
-    <% if tour %>
-    <%= form.hidden_field :tour, value: tour %>
-    <% else %>
-    <div class="col">
-      <div class="form-group">
-        <%= form.label :tour %>
-        <%= form.select :tour, Enums::Tours.values, { include_blank: false }, class: "form-control" %>
-      </div>
-    </div>
-    <% end %>
+  <%= form.hidden_field :tour, value: tour %>
 
   <div class="col">
     <div class="form-group">
       <%= form.label :category %>
-      <%= form.select :category, @categories.values, { include_blank: false }, class: "form-control" %>
+      <%= form.select :category, @form_utils.tournament_categories, { include_blank: false }, class: "form-control" %>
     </div>
   </div>
 

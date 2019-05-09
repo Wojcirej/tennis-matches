@@ -52,6 +52,7 @@ RSpec.configure do |config|
   config.order = :random
 
   config.include FactoryBot::Syntax::Methods
+  config.include TournamentsHelper
   config.include GeneralFeatureSpecsMethods, type: :feature
 
   config.before(:suite) do

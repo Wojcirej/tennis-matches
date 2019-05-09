@@ -1,5 +1,5 @@
-<%= render 'shared/description', lead: "Add new #{@tour} tournament", description: nil %>
+<%= render 'shared/description', lead: "Add new #{@form_utils.tour} tournament", description: nil %>
 
-<%= render 'form', tournament: @tournament, tour: @tour %>
+<%= render 'form', tournament: @form_utils.tournament, tour: @form_utils.tour %>
 <hr class="my-4">
 <%= link_to 'Back', tournaments_path %>

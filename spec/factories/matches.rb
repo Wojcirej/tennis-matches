@@ -35,7 +35,7 @@ FactoryBot.define do
     association :home_player, factory: :player, strategy: :create
     association :away_player, factory: :player, strategy: :create
     association :tournament, factory: :tournament, strategy: :create
-    stage { Enums::TournamentStages.values.sample }
+    stage { Tournaments::Enums::TournamentStages.values.sample }
     date { "2019-04-20" }
     home_seed { "MyString" }
     away_seed { "MyString" }

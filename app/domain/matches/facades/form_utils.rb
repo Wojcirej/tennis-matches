@@ -17,7 +17,7 @@ module Matches
       end
 
       def stages
-        Enums::TournamentStages.to_h.collect { |key, value| [key.to_s.humanize, value] }
+        Tournaments::Enums::TournamentStages.to_h.collect { |key, value| [key.to_s.humanize, value] }
       end
 
       def date
