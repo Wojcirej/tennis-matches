@@ -20,6 +20,10 @@ module Matches
         Tournaments::Enums::TournamentStages.to_h.collect { |key, value| [key.to_s.humanize, value] }
       end
 
+      def seeds
+        (1..32).to_a + ["LL", "WC", "PR", "Q"]
+      end
+
       def date
         match.persisted? ? match.date : Date.today
       end

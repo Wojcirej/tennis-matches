@@ -93,5 +93,13 @@ RSpec.describe Match, type: :model do
     it "returns summary of the match in format: [<tournament name> <year> <stage>] [<home player seed>] <home player full name> v. [<away player seed>] <away player full name>" do
       expect(match.brief_summary).to eq("[#{match.tournament.name} #{match.date.year} #{match.stage}] [#{match.home_seed}] #{match.home_player.full_name} v. [#{match.away_seed}] #{match.away_player.full_name}")
     end
+
+    context "when blank home or away seed" do
+      let(:match) { create(:match, home_seed: nil, away_seed: nil) }
+
+      it "returns summary of the match in format: [<tournament name> <year> <stage>] <home player full name> v. <away player full name>" do
+        expect(match.brief_summary).to eq("[#{match.tournament.name} #{match.date.year} #{match.stage}] #{match.home_player.full_name} v. #{match.away_player.full_name}")
+      end
+    end
   end
 end

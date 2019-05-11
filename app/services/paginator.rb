@@ -4,7 +4,7 @@ class Paginator
   attr_accessor :data, :page, :per_page
 
   PAGE = 1
-  PER_PAGE = 25
+  PER_PAGE = 10
 
   def initialize(data, page = nil, per_page = nil)
     @data = data

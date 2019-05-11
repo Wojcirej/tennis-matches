@@ -38,7 +38,7 @@ RSpec.describe Paginator do
       end
 
       it "initializes 'per_page' with default value" do
-        expect(subject.new(collection, page, per_page).per_page).to eq(25)
+        expect(subject.new(collection, page, per_page).per_page).to eq(10)
       end
     end
   end

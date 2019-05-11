@@ -56,6 +56,8 @@ class Match < ApplicationRecord
   end
 
   def brief_summary
-    "[#{tournament.name} #{date.year} #{stage}] [#{home_seed}] #{home_player.full_name} v. [#{away_seed}] #{away_player.full_name}"
+    home_seed_string = home_seed.present? ? "[#{home_seed}] " : ""
+    away_seed_string = away_seed.present? ? "[#{away_seed}] " : ""
+    "[#{tournament.name} #{date.year} #{stage}] #{home_seed_string}#{home_player.full_name} v. #{away_seed_string}#{away_player.full_name}"
   end
 end

@@ -30,6 +30,7 @@ module Matches
             content += " "
           end
         end
+        content += "ret." if retirement
         return content.squish
       end
 

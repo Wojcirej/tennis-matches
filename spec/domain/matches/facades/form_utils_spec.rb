@@ -74,6 +74,13 @@ RSpec.describe Matches::Facades::FormUtils do
     end
   end
 
+  describe "#seeds" do
+    let(:expected_array) { (1..32).to_a + ["LL", "WC", "PR", "Q"] }
+    it "returns array of seeds from 1-32 range and symbols for wild card, protected ranking, lucky loser and qualifier" do
+      expect(subject.seeds).to eq(expected_array)
+    end
+  end
+
   describe "#date" do
 
     context "when no match object present" do

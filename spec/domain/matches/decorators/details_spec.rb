@@ -55,6 +55,14 @@ RSpec.describe Matches::Decorators::Details do
         expect(subject.scoreline).to eq("7-6(6) 6-3")
       end
     end
+
+    context "when match involves retirement" do
+      let(:match) { create(:match, :home_two_zero_winner_with_tie_break, retirement: true) }
+
+      it "includes '.ret' in the scoreline" do
+        expect(subject.scoreline).to eq("7-6(6) 6-3 ret.")
+      end
+    end
   end
 
   describe "#summary_without_participants" do
