@@ -32,5 +32,7 @@ module TennisMatches
     config.generators do |generator|
       generator.orm :active_record, primary_key_type: :uuid
     end
+    require "#{Rails.root}/lib/version"
+    config.version = TennisMatches::VERSION
   end
 end
