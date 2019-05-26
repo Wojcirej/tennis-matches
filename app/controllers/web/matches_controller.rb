@@ -14,6 +14,7 @@ class Web::MatchesController < ApplicationController
   end
 
   def create
+    @form_utils = Matches::Facades::FormUtils.new
     @match = Match.new(match_params)
     if @match.save
       redirect_to @match, notice: 'Match was successfully created.'
@@ -28,6 +29,7 @@ class Web::MatchesController < ApplicationController
   end
 
   def update
+    @form_utils = Matches::Facades::FormUtils.new(Match.find(params[:id]))
     if @match.update(match_params)
       redirect_to @match, notice: 'Match was successfully updated.'
     else
@@ -38,7 +40,7 @@ class Web::MatchesController < ApplicationController
 
   def destroy
     @match.destroy
-    redirect_to matches_url, notice: 'Match was successfully destroyed.'
+    redirect_to matches_url, notice: 'Match has been deleted.'
   end
 
   private

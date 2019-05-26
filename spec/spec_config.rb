@@ -4,6 +4,8 @@ SimpleCov.start do
   add_group("Domain", "app/domain/")
   add_group("Persistence", "app/models/")
   add_group("Services", "app/services/")
+  add_group("Page object usage", "spec/helpers/pages")
+  add_group("Page object sections usage", "spec/helpers/page_sections")
 end
 
 require 'spec_helper'

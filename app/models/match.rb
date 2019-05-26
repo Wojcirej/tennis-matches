@@ -47,7 +47,9 @@ class Match < ApplicationRecord
   greater_than_or_equal_to: 0, less_than_or_equal_to: 7, allow_nil: true
 
   validates :home_set_1_score, :home_set_2_score, :away_set_1_score,
-  :away_set_2_score, presence: true, unless: :retirement?
+  :away_set_2_score, match_result_presence: true, unless: :retirement?
+
+  validates_with MatchParticipantsValidator
 
   default_scope -> { order("created_at ASC") }
 

@@ -34,5 +34,13 @@ FactoryBot.define do
       tour { "ITF" }
       category { Tournaments::Enums::ItfTournamentCategories.values.sample }
     end
+
+    trait :wimbledon do
+      name { "Wimbledon" }
+      country { "Great Britain" }
+      city { "London" }
+      tour { "ITF" }
+      category { "Grand Slam" }
+    end
   end
 end

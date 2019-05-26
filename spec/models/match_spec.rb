@@ -33,6 +33,7 @@
 require 'spec_config'
 
 RSpec.describe Match, type: :model do
+  subject { create(:match) }
 
   it { is_expected.to belong_to(:home_player).class_name('Player') }
   it { is_expected.to belong_to(:away_player).class_name('Player') }
@@ -80,11 +81,12 @@ RSpec.describe Match, type: :model do
   it { is_expected.to validate_numericality_of(:away_set_5_score).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(7) }
 
   context "when retirement = 'false'" do
+    let(:match) { create(:match, retirement: false) }
 
-    it { is_expected.to validate_presence_of(:home_set_1_score) }
-    it { is_expected.to validate_presence_of(:home_set_2_score) }
-    it { is_expected.to validate_presence_of(:away_set_1_score) }
-    it { is_expected.to validate_presence_of(:away_set_2_score) }
+    it { expect(match).to validate_presence_of(:home_set_1_score).with_message("Set 1 score for #{match.home_player.full_name} is missing.") }
+    it { expect(match).to validate_presence_of(:home_set_2_score).with_message("Set 2 score for #{match.home_player.full_name} is missing.") }
+    it { expect(match).to validate_presence_of(:away_set_1_score).with_message("Set 1 score for #{match.away_player.full_name} is missing.") }
+    it { expect(match).to validate_presence_of(:away_set_2_score).with_message("Set 2 score for #{match.away_player.full_name} is missing.") }
   end
 
   describe "#brief_summary" do

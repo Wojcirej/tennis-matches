@@ -60,6 +60,21 @@ FactoryBot.define do
       retirement { true }
     end
 
+    trait :wimbledon_2004_women_final do
+      home_player { create(:player, first_name: "Serena", last_name: "Williams") }
+      away_player { create(:player, first_name: "Maria", last_name: "Sharapova") }
+      tournament { create(:tournament, name: "Wimbledon") }
+      stage { "F" }
+      date { "2004-07-03" }
+      home_seed { "1" }
+      away_seed { "13" }
+      home_set_1_score { 1 }
+      home_set_2_score { 4 }
+      away_set_1_score { 6 }
+      away_set_2_score { 6 }
+      retirement { false }
+    end
+
     trait :home_two_zero_winner do
       home_set_1_score { 7 }
       away_set_1_score { 5 }
