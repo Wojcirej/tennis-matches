@@ -20,8 +20,8 @@ feature "Players list page", type: :feature, js: true do
   end
 
   scenario "displays list of all players available in database" do
-    expect(players_list_page).to have_all_players
-    expect(players_list_page.all_players.size).to eq(players.size)
+    expect(players_list_page).to have_player_rows
+    expect(players_list_page.player_rows.size).to eq(players.size)
   end
 
   scenario "displays player's #{player_info_description}" do
@@ -42,9 +42,9 @@ feature "Players list page", type: :feature, js: true do
   end
 
   scenario "allows to delete player" do
-    number_of_players_on_the_list_before_deletion = players_list_page.all_players.size
+    number_of_players_on_the_list_before_deletion = players_list_page.player_rows.size
     players_list_page.delete_player(0)
     expect(page).to have_content("Player #{players[0].full_name} has been deleted.")
-    expect(players_list_page.all_players.size).to eq(number_of_players_on_the_list_before_deletion - 1)
+    expect(players_list_page.player_rows.size).to eq(number_of_players_on_the_list_before_deletion - 1)
   end
 end
