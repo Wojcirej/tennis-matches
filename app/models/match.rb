@@ -62,4 +62,18 @@ class Match < ApplicationRecord
     away_seed_string = away_seed.present? ? "[#{away_seed}] " : ""
     "[#{tournament.name} #{date.year} #{stage}] #{home_seed_string}#{home_player.full_name} v. #{away_seed_string}#{away_player.full_name}"
   end
+
+  private
+
+  def home_player_name
+    home_player.full_name
+  end
+
+  def away_player_name
+    away_player.full_name
+  end
+
+  def tournament_name
+    tournament.name
+  end
 end

@@ -1,8 +1,16 @@
 class Web::PlayersController < Web::BaseController
-  before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :set_player, except: [:index, :new, :create]
 
   def index
     @players = Paginator.call(Player.all, params[:page], params[:per_page])
+    respond_to do |format|
+      format.html
+      format.csv do
+         send_data(
+           Players::Export.call(Paginator.call(Player.all, params[:page], params[:per_page])),
+           filename: "players-#{Date.today}.csv")
+      end
+    end
   end
 
   def new

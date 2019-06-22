@@ -3,6 +3,14 @@ class Web::MatchesController < ApplicationController
 
   def index
     @matches = Paginator.call(Match.all, params[:page], params[:per_page])
+    respond_to do |format|
+      format.html
+      format.csv do
+         send_data(
+           Matches::Export.call(Paginator.call(Match.all, params[:page], params[:per_page])),
+           filename: "matches-#{Date.today}.csv")
+      end
+    end
   end
 
   def show

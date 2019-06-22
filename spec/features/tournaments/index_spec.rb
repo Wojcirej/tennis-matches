@@ -46,6 +46,7 @@ feature "All tournaments list page", type: :feature, js: true do
 
     it_behaves_like "page with top main menu", :tournaments_list_page
     include_examples "common tournaments list contents and actions", "all"
+    include_examples "export modal visibility", :tournaments_list_page, "tournaments"
 
     scenario "allows to add new tournament via buttons under tournaments list" do
       expect(tournaments_list_page).to have_add_new_wta_tournament_button
@@ -70,6 +71,10 @@ feature "All tournaments list page", type: :feature, js: true do
         expect(tournaments_list_page.tour(index)).to eq("ATP")
       end
     end
+
+    scenario "doesn't allow to export only ATP tournaments to CSV" do
+      expect(tournaments_list_page).not_to have_export_button
+    end
   end
 
   context "when WTA tour chosen" do
@@ -88,6 +93,10 @@ feature "All tournaments list page", type: :feature, js: true do
         expect(tournaments_list_page.tour(index)).to eq("WTA")
       end
     end
+
+    scenario "doesn't allow to export only WTA tournaments to CSV" do
+      expect(tournaments_list_page).not_to have_export_button
+    end
   end
 
   context "when ITF tour chosen" do
@@ -105,6 +114,10 @@ feature "All tournaments list page", type: :feature, js: true do
       tournaments.size.times do |index|
         expect(tournaments_list_page.tour(index)).to eq("ITF")
       end
+    end
+
+    scenario "doesn't allow to export only ITF tournaments to CSV" do
+      expect(tournaments_list_page).not_to have_export_button
     end
   end
 end

@@ -10,6 +10,8 @@ module Pages
       elements :match_details_link, 'tbody tr td:nth-of-type(3) a:nth-of-type(1)'
       elements :edit_match_link, 'tbody tr td:nth-of-type(3) a:nth-of-type(2)'
       elements :delete_match_link, 'tbody tr td:nth-of-type(3) a:nth-of-type(3)'
+      element :export_button, '.btn-group button:last-of-type'
+      section :export_modal, PageSections::ExportModal, '#export-modal'
 
       def lead_text
         lead.text

@@ -9,6 +9,7 @@ feature "All matches list page", type: :feature, js: true do
   end
 
   it_behaves_like "page with top main menu", :matches_list_page
+  include_examples "export modal visibility", :matches_list_page, "matches"
 
   scenario "has leading text explaining contents of the page" do
     expect(matches_list_page).to have_lead

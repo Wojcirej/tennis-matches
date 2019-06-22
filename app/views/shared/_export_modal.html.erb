@@ -1,0 +1,19 @@
+<div class="modal fade" id="export-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Export data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= link_to "Export all #{data_type} data", send("#{data_type}_path", { format: :csv, per_page: data_type.singularize.capitalize.constantize.count }), class: "btn btn-success" %>
+        <%= link_to "Export just selected #{data_type} data", send("#{data_type}_path", { format: :csv, page: instance_variable_get("@#{data_type}").current_page }), class: "btn btn-success" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

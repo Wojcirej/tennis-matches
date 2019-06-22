@@ -13,6 +13,7 @@ feature "Players list page", type: :feature, js: true do
   end
 
   it_behaves_like "page with top main menu", :players_list_page
+  include_examples "export modal visibility", :players_list_page, "players"
 
   scenario "has leading text explaining contents of the page" do
     expect(players_list_page).to have_lead

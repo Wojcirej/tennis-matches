@@ -16,6 +16,8 @@ module Pages
       elements :edit_player_link, 'tbody tr td:nth-of-type(8) a:nth-of-type(2)'
       elements :delete_player_link, 'tbody tr td:nth-of-type(8) a:nth-of-type(3)'
       section :top_main_menu, PageSections::TopMainMenu, '#main-menu'
+      element :export_button, '.btn-group button:last-of-type'
+      section :export_modal, PageSections::ExportModal, '#export-modal'
 
       def lead_text
         lead.text

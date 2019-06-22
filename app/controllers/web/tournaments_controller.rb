@@ -3,18 +3,26 @@ class Web::TournamentsController < ApplicationController
 
   def index
     @tournaments = Paginator.call(Tournament.all, params[:page], params[:per_page])
+    respond_to do |format|
+      format.html
+      format.csv do
+         send_data(
+           Tournaments::Export.call(Paginator.call(Tournament.all, params[:page], params[:per_page])),
+           filename: "tournaments-#{Date.today}.csv")
+      end
+    end
   end
 
   def atp
-    @atp_tournaments = Paginator.call(Tournament.atp_tournaments, params[:page], params[:per_page])
+    @tournaments = Paginator.call(Tournament.atp_tournaments, params[:page], params[:per_page])
   end
 
   def wta
-    @wta_tournaments = Paginator.call(Tournament.wta_tournaments, params[:page], params[:per_page])
+    @tournaments = Paginator.call(Tournament.wta_tournaments, params[:page], params[:per_page])
   end
 
   def itf
-    @itf_tournaments = Paginator.call(Tournament.itf_tournaments, params[:page], params[:per_page])
+    @tournaments = Paginator.call(Tournament.itf_tournaments, params[:page], params[:per_page])
   end
 
   def new

@@ -38,8 +38,12 @@
     <%= link_to 'Add WTA tournament', new_tournament_path(tour: "WTA"), class: "btn btn-success" %>
     <%= link_to 'Add ATP tournament', new_tournament_path(tour: "ATP"), class: "btn btn-success" %>
     <%= link_to 'Add ITF tournament', new_tournament_path(tour: "ITF"), class: "btn btn-success" %>
+    <button class="btn btn-success" data-toggle="modal" data-target="#export-modal">
+      Export to CSV
+    </button>
   </div>
   <% end %>
 </div>
 
+<%= render 'shared/export_modal', data_type: "tournaments" %>
 <%= render 'shared/paginator', collection: tournaments %>

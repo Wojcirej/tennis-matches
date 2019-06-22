@@ -33,8 +33,12 @@
   </tbody>
 </table>
 
-<div class="row">
+<div class="row btn-group">
   <%= link_to 'Add player', new_player_path, class: "btn btn-success" %>
+  <button class="btn btn-success" data-toggle="modal" data-target="#export-modal">
+    Export to CSV
+  </button>
 </div>
 
+<%= render 'shared/export_modal', data_type: "players" %>
 <%= render 'shared/paginator', collection: @players %>

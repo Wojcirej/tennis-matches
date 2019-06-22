@@ -17,6 +17,8 @@ module Pages
       element :add_new_wta_tournament_button, '.btn-group a:nth-of-type(1)'
       element :add_new_atp_tournament_button, '.btn-group a:nth-of-type(2)'
       element :add_new_itf_tournament_button, '.btn-group a:nth-of-type(3)'
+      element :export_button, '.btn-group button:first-of-type'
+      section :export_modal, PageSections::ExportModal, '#export-modal'
 
       def tour(index)
         tours[index].text
