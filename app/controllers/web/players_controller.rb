@@ -1,5 +1,5 @@
 class Web::PlayersController < Web::BaseController
-  before_action :set_player, except: [:index, :new, :create]
+  before_action :set_player, except: [:index, :new, :create, :import]
 
   def index
     @players = Paginator.call(Player.all, params[:page], params[:per_page])
@@ -41,10 +41,19 @@ class Web::PlayersController < Web::BaseController
     redirect_to players_path, notice: "Player #{@player.full_name} has been deleted."
   end
 
+  def import
+    DataImporter.call(import_params[:file], :players)
+    redirect_to players_path, notice: "Import success."
+  end
+
   private
   def player_params
     params.require(:player).permit(:first_name, :last_name, :date_of_birth,
       :country, :born, :sex)
+  end
+
+  def import_params
+    params.require(:players).permit(:file)
   end
 
   def set_player

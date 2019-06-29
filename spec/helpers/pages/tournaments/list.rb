@@ -19,6 +19,8 @@ module Pages
       element :add_new_itf_tournament_button, '.btn-group a:nth-of-type(3)'
       element :export_button, '.btn-group button:first-of-type'
       section :export_modal, PageSections::ExportModal, '#export-modal'
+      element :import_button, '.btn-group button:nth-of-type(2)'
+      section :import_modal, PageSections::ImportModal, '#import-modal'
 
       def tour(index)
         tours[index].text

@@ -1,4 +1,4 @@
-class Web::TournamentsController < ApplicationController
+class Web::TournamentsController < Web::BaseController
   before_action :set_tournament, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -59,6 +59,11 @@ class Web::TournamentsController < ApplicationController
     redirect_to send("#{@tournament.tour.downcase}_tournaments_url"), notice: "Tournament #{@tournament.name} has been deleted."
   end
 
+  def import
+    DataImporter.call(import_params[:file], :tournaments)
+    redirect_to tournaments_path, notice: "Import success."
+  end
+
   private
   def set_tournament
     @tournament = Tournament.find(params[:id])
@@ -66,5 +71,9 @@ class Web::TournamentsController < ApplicationController
 
   def tournament_params
     params.require(:tournament).permit(:name, :country, :city, :category, :tour)
+  end
+
+  def import_params
+    params.require(:tournaments).permit(:file)
   end
 end

@@ -38,7 +38,11 @@
   <button class="btn btn-success" data-toggle="modal" data-target="#export-modal">
     Export to CSV
   </button>
+  <button class="btn btn-success" data-toggle="modal" data-target="#import-modal">
+    Import from CSV
+  </button>
 </div>
 
 <%= render 'shared/export_modal', data_type: "players" %>
+<%= render 'shared/import_modal', data_type: "players" %>
 <%= render 'shared/paginator', collection: @players %>

@@ -55,6 +55,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include TournamentsHelper
+  config.include ImportHelper
   config.include GeneralFeatureSpecsMethods, type: :feature
 
   config.before(:suite) do

@@ -1,4 +1,4 @@
-class Web::MatchesController < ApplicationController
+class Web::MatchesController < Web::BaseController
   before_action :set_match, only: [:show, :update, :destroy]
 
   def index

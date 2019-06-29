@@ -15,11 +15,11 @@
 
 FactoryBot.define do
   factory :player do
-    first_name { Faker::Movies::LordOfTheRings.unique.character }
-    last_name { Faker::Name.unique.name }
+    first_name { Faker::Movies::LordOfTheRings.character }
+    last_name { Faker::Name.name }
     country { Enums::Countries.list.sample }
     date_of_birth { Faker::Date.unique.birthday(18, 40) }
-    born { Faker::Movies::LordOfTheRings.unique.location }
+    born { Faker::Movies::LordOfTheRings.location }
     sex { ["female", "male"].sample }
 
     trait :sharapova do
